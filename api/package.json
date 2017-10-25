@@ -1,0 +1,25 @@
+{
+  "name": "ramtec-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nodejs",
+    "restful",
+    "api",
+    "mongoose"
+  ],
+  "author": "Max Medina",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "1.18.0",
+    "dotenv": "4.0.0",
+    "express": "4.15.4",
+    "method-override": "^2.3.9",
+    "mongoose": "4.11.11",
+    "morgan": "^1.9.0"
+  }
+}
