@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpModule }    from '@angular/http';
-
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ChartistModule } from 'ng-chartist';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,6 +23,7 @@ import { VoltageListComponent } from './components/voltage-list/voltage-list.com
   imports: [
     BrowserModule,
     HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     ChartistModule
   ],

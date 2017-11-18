@@ -35,7 +35,7 @@ export class DashboardComponent implements OnInit {
     this.service.getDeviceMeasures(0)
       .then(measures => {
         this.voltages = measures.map( x => { return x.voltage01 });
-        this.labels = measures.map( x => { return "" + x.createdAt.getDate() });
+        this.labels = measures.map( x => { return "" + new Date(x.createdAt).getDate() });
 
         this.graphData.labels = this.labels;
         this.graphData.series = [
@@ -43,6 +43,8 @@ export class DashboardComponent implements OnInit {
             data: this.voltages
           }
         ];
+
+        console.log(this.graphData);
       });
   }
 

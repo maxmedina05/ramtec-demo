@@ -17,6 +17,29 @@ function getAll(req, res) {
     });
 }
 
+function getVoltages(req, res) {
+  Product.aggregate(
+    [  {
+          "$group": {
+              "_id": {
+                  "year": { "$year": "$createdAt" },
+                  "month": { "$month": "$createdAt" },
+                  "day": { "$dayOfMonth": "$createdAt" }
+              },
+              "avg": { "$avg": "$voltage01" }
+          }
+      },
+      { $sort: { _id: 1 } }
+    ]
+  , (err, voltages) => {
+      if(err) {
+        res.json(_ErrorResponse(err));
+      } else {
+        res.json(_GeneralResponse(voltages));
+      }
+  });
+}
+
 function addOne(req, res) {
   console.log(req.body);
   if (_validateBody(req.body)) {
@@ -107,6 +130,7 @@ function _ErrorResponse(err) {
 
 module.exports = {
   getAll: getAll,
+  getVoltages: getVoltages,
   addOne: addOne,
   getOne: getOne,
   updateOne: updateOne,

@@ -7,6 +7,7 @@
       <th>Module Name</th>
       <th>Voltage 01</th>
       <th>Voltage 02</th>
+      <th>Created At</th>
     </tr>
   </thead>
   <tbody>
@@ -15,6 +16,7 @@
       <td>{{m.name}}</td>
       <td>{{m.voltage01}}</td>
       <td>{{m.voltage02}}</td>
+      <td>{{m.createdAt | date:'medium'}}</td>
     </tr>
   </tbody>
 </table>

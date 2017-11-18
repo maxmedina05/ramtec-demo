@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/toPromise';
@@ -14,13 +14,16 @@ import { DEVICE_MEASURES } from "../models/device-measure.mock";
 export class DeviceMeasureService {
   private deviceMeasures: DeviceMeasure[];
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
     this.deviceMeasures = DEVICE_MEASURES;
   }
 
   getDeviceMeasures(moduleId: number): Promise<DeviceMeasure[]> {
-    return new Promise((resolve, reject) => {
-      resolve(this.deviceMeasures);
-    });
+    return this.http.get<IResponse<DeviceMeasure>>('http://40.71.197.209:3100/api/v1/voltages')
+      .toPromise()
+      .then(response => response.data as DeviceMeasure[])
+    // return new Promise((resolve, reject) => {
+    //   resolve(this.deviceMeasures);
+    // });
   }
 }
