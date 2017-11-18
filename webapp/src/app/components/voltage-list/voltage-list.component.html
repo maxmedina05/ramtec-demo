@@ -1,0 +1,21 @@
+<div class="container">
+  <h1>Device Measurements</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Module Id</th>
+      <th>Module Name</th>
+      <th>Voltage 01</th>
+      <th>Voltage 02</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of measures">
+      <td>{{m.moduleId}}</td>
+      <td>{{m.name}}</td>
+      <td>{{m.voltage01}}</td>
+      <td>{{m.voltage02}}</td>
+    </tr>
+  </tbody>
+</table>
+</div>

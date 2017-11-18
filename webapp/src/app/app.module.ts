@@ -11,12 +11,14 @@ import { NavComponent } from './components/nav/nav.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 
 import { DeviceMeasureService } from "./services/device-measure.service";
+import { VoltageListComponent } from './components/voltage-list/voltage-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavComponent,
-    DashboardComponent
+    DashboardComponent,
+    VoltageListComponent
   ],
   imports: [
     BrowserModule,

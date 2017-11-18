@@ -43,12 +43,7 @@ export class DashboardComponent implements OnInit {
             data: this.voltages
           }
         ];
-
-        console.log(this.voltages);
       });
-
-
-    // Chartist chart = new Chartist.Bar('#chart1', graphData, this.options);
   }
 
   onDateRangeFilterChanged($event) {
