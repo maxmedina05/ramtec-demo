@@ -26,4 +26,13 @@ export class DeviceMeasureService {
     //   resolve(this.deviceMeasures);
     // });
   }
+
+  getVoltages(moduleId: number): Promise<any[]> {
+    return this.http.get<IResponse<any>>('http://40.71.197.209:3100/api/v1/voltages/volts')
+      .toPromise()
+      .then(response => response.data as any[])
+    // return new Promise((resolve, reject) => {
+    //   resolve(this.deviceMeasures);
+    // });
+  }
 }

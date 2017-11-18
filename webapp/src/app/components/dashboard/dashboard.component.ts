@@ -32,10 +32,10 @@ export class DashboardComponent implements OnInit {
   constructor(private service: DeviceMeasureService) { }
 
   ngOnInit() {
-    this.service.getDeviceMeasures(0)
-      .then(measures => {
-        this.voltages = measures.map( x => { return x.voltage01 });
-        this.labels = measures.map( x => { return "" + new Date(x.createdAt).getDate() });
+    this.service.getVoltages(0)
+      .then(voltages => {
+        this.voltages = voltages.map( x => { return x.avg });
+        this.labels = voltages.map( x => { return "" + x._id.month + "-" + x._id.day });
 
         this.graphData.labels = this.labels;
         this.graphData.series = [
