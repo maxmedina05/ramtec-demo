@@ -16,34 +16,29 @@ export interface LiveData {
   encapsulation: ViewEncapsulation.None
 })
 export class DashboardComponent implements OnInit {
-  private labels: string[];
-  private voltages: number[];
   private options: any = {
     width: 420,
     height: 300
   };
 
-  graphData: LiveData = {
-    labels: [],
-    series: []
-  };
-  type: ChartType = 'Bar';
+  graphData: any;
 
   constructor(private service: DeviceMeasureService) { }
 
   ngOnInit() {
     this.service.getVoltages(0)
-      .then(voltages => {
-        this.voltages = voltages.map( x => { return x.avg });
-        this.labels = voltages.map( x => { return "" + x._id.month + "-" + x._id.day });
+      .then(response => {
+        let voltages = response.map(x => { return x.avg });
+        let labels = response.map(x => { return "" + x._id.month + "-" + x._id.day });
 
-        this.graphData.labels = this.labels;
-        this.graphData.series = [
-          {
-            data: this.voltages
-          }
-        ];
-
+        this.graphData = {
+          labels: labels,
+          series: [
+            {
+              data: voltages
+            }
+          ]
+        };
         console.log(this.graphData);
       });
   }

@@ -1,20 +1,28 @@
 <div class="container">
 
+<div class="card-deck">
   <div class="card" style="width: 24rem;">
     <div class="card-body">
       <h4 class="card-title">Measures in Real Time</h4>
 
-      <x-chartist [data]="graphData" [type]="type">
-    </x-chartist>
+      <x-chartist [data]="graphData" type="Bar"></x-chartist>
 
-      <div class="form-group">
+      <!-- <div class="form-group">
         <select class="form-control" (change)="onDateRangeFilterChanged($event)">
           <option>By Day</option>
           <option>Last Month</option>
           <option>Custom Range</option>
         </select>
-      </div>
+      </div> -->
     </div>
   </div>
+
+  <div class="card" style="width: 24rem;">
+    <div class="card-body">
+      <h4 class="card-title">Measures in Real Time</h4>
+      <x-chartist [data]="graphData" type="Line"></x-chartist>
+    </div>
+  </div>
+</div>
 
 </div>

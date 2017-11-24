@@ -8,6 +8,7 @@ function getAll(req, res) {
   Product.find()
     .skip(skip)
     .limit(limit)
+    .sort('-createdAt')
     .exec()
     .then(result => {
       res.json(_GeneralResponse(result));
